@@ -1,0 +1,166 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "AvaAgent Response",
+  "$defs": {
+    "address": {
+      "type": "string",
+      "pattern": "^0x[a-fA-F0-9]{40}$"
+    },
+    "hash": {
+      "type": "string",
+      "pattern": "^0x[a-fA-F0-9]{64}$"
+    }
+  },
+  "oneOf": [
+    {
+      "type": "object",
+      "properties": {
+        "address": {
+          "$ref": "#/$defs/address"
+        }
+      },
+      "required": [
+        "address"
+      ],
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "properties": {
+        "address": {
+          "$ref": "#/$defs/address"
+        },
+        "asset": {
+          "type": "string"
+        },
+        "tokenAddress": {
+          "$ref": "#/$defs/address"
+        },
+        "amountRaw": {
+          "type": "string"
+        },
+        "amountFormatted": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "address",
+        "asset",
+        "tokenAddress",
+        "amountRaw",
+        "amountFormatted"
+      ],
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "properties": {
+        "kind": {
+          "enum": [
+            "native-transfer",
+            "erc20-transfer"
+          ]
+        },
+        "asset": {
+          "type": "string"
+        },
+        "amount": {
+          "type": "string"
+        },
+        "to": {
+          "$ref": "#/$defs/address"
+        },
+        "hash": {
+          "$ref": "#/$defs/hash"
+        }
+      },
+      "required": [
+        "kind",
+        "asset",
+        "amount",
+        "to",
+        "hash"
+      ],
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "properties": {
+        "approval": {
+          "oneOf": [
+            {
+              "type": "null"
+            },
+            {
+              "type": "object",
+              "properties": {
+                "spender": {
+                  "$ref": "#/$defs/address"
+                },
+                "hash": {
+                  "$ref": "#/$defs/hash"
+                }
+              },
+              "required": [
+                "spender",
+                "hash"
+              ],
+              "additionalProperties": false
+            }
+          ]
+        },
+        "hash": {
+          "$ref": "#/$defs/hash"
+        },
+        "quote": {
+          "type": "object",
+          "properties": {
+            "buyAmount": {
+              "type": "string"
+            },
+            "buyAmountFormatted": {
+              "type": "string"
+            },
+            "minBuyAmount": {
+              "type": "string"
+            },
+            "minBuyAmountFormatted": {
+              "type": "string"
+            },
+            "route": {
+              "type": "object"
+            },
+            "liquidityAvailable": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "buyAmount",
+            "buyAmountFormatted",
+            "liquidityAvailable"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "approval",
+        "hash",
+        "quote"
+      ],
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "properties": {
+        "error": {
+          "type": "string"
+        },
+        "details": {}
+      },
+      "required": [
+        "error"
+      ],
+      "additionalProperties": false
+    }
+  ]
+}

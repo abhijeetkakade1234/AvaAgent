@@ -1,0 +1,39 @@
+{
+  "name": "avaagent",
+  "version": "0.1.0",
+  "description": "Local Avalanche wallet and swap control for Codex through the AvaAgent CLI and schemas.",
+  "author": {
+    "name": "Abhij",
+    "email": "abhijeetskakade04@gmail.com",
+    "url": "https://github.com/abhijeetkakade1234/AvaAgent"
+  },
+  "license": "MIT",
+  "keywords": [
+    "avalanche",
+    "wallet",
+    "swap",
+    "cli",
+    "local-agent"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "AvaAgent",
+    "shortDescription": "Control a local Avalanche wallet and real swaps from Codex.",
+    "longDescription": "A local-first Codex plugin wrapper for AvaAgent. It exposes wallet creation, balances, transfers, AI command parsing, and 0x-backed Avalanche swap execution through a deterministic CLI and JSON schemas.",
+    "developerName": "Abhijeet Kakade",
+    "category": "Developer Tools",
+    "capabilities": [
+      "Interactive",
+      "Write"
+    ],
+    "websiteURL": "https://github.com/abhijeetkakade1234/AvaAgent",
+    "privacyPolicyURL": "https://github.com/abhijeetkakade1234/AvaAgent/blob/main/PRIVACY.md",
+    "termsOfServiceURL": "https://github.com/abhijeetkakade1234/AvaAgent/blob/main/TERMS.md",
+    "defaultPrompt": [
+      "Create a local Avalanche wallet with AvaAgent.",
+      "Quote swapping 0.1 AVAX into USDC on Avalanche.",
+      "Use AvaAgent to send 1 USDC to a wallet."
+    ],
+    "brandColor": "#E84142"
+  }
+}

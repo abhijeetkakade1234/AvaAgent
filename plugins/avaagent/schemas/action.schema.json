@@ -1,0 +1,180 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "AvaAgent Action",
+  "type": "object",
+  "oneOf": [
+    {
+      "properties": {
+        "action": {
+          "const": "createWallet"
+        },
+        "password": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "action",
+        "password"
+      ],
+      "additionalProperties": false
+    },
+    {
+      "properties": {
+        "action": {
+          "const": "getAddress"
+        }
+      },
+      "required": [
+        "action"
+      ],
+      "additionalProperties": false
+    },
+    {
+      "properties": {
+        "action": {
+          "const": "getBalance"
+        },
+        "asset": {
+          "type": "string",
+          "minLength": 1
+        },
+        "address": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "action",
+        "asset",
+        "address"
+      ],
+      "additionalProperties": false
+    },
+    {
+      "properties": {
+        "action": {
+          "const": "send"
+        },
+        "to": {
+          "type": "string",
+          "minLength": 1
+        },
+        "amount": {
+          "type": "string",
+          "pattern": "^(?:0*[1-9]\\d*(?:\\.\\d+)?|0*\\.\\d*[1-9]\\d*)$"
+        },
+        "asset": {
+          "type": "string",
+          "minLength": 1
+        },
+        "password": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "action",
+        "to",
+        "amount",
+        "asset",
+        "password"
+      ],
+      "additionalProperties": false
+    },
+    {
+      "properties": {
+        "action": {
+          "const": "quoteSwap"
+        },
+        "sellToken": {
+          "type": "string",
+          "minLength": 1
+        },
+        "buyToken": {
+          "type": "string",
+          "minLength": 1
+        },
+        "sellAmount": {
+          "type": "string",
+          "pattern": "^(?:0*[1-9]\\d*(?:\\.\\d+)?|0*\\.\\d*[1-9]\\d*)$"
+        },
+        "taker": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "action",
+        "sellToken",
+        "buyToken",
+        "sellAmount"
+      ],
+      "additionalProperties": false
+    },
+    {
+      "properties": {
+        "action": {
+          "const": "swap"
+        },
+        "sellToken": {
+          "type": "string",
+          "minLength": 1
+        },
+        "buyToken": {
+          "type": "string",
+          "minLength": 1
+        },
+        "sellAmount": {
+          "type": "string",
+          "pattern": "^(?:0*[1-9]\\d*(?:\\.\\d+)?|0*\\.\\d*[1-9]\\d*)$"
+        },
+        "slippageBps": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 10000
+        },
+        "password": {
+          "type": "string",
+          "minLength": 1
+        },
+        "autoApprove": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "action",
+        "sellToken",
+        "buyToken",
+        "sellAmount",
+        "password"
+      ],
+      "additionalProperties": false
+    },
+    {
+      "properties": {
+        "action": {
+          "const": "runAiCommand"
+        },
+        "prompt": {
+          "type": "string",
+          "minLength": 1
+        },
+        "requiresYes": {
+          "type": "boolean"
+        },
+        "password": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "action",
+        "prompt",
+        "requiresYes",
+        "password"
+      ],
+      "additionalProperties": false
+    }
+  ]
+}

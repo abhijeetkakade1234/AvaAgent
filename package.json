@@ -1,0 +1,67 @@
+{
+  "name": "avaagent",
+  "version": "0.1.0",
+  "description": "Local Avalanche wallet SDK, CLI, and Codex plugin scaffold with real swap execution support.",
+  "type": "module",
+  "main": "./src/index.js",
+  "bin": {
+    "avaagent": "./src/cli.js"
+  },
+  "exports": {
+    ".": "./src/index.js"
+  },
+  "files": [
+    "src",
+    "plugins",
+    ".agents/plugins/avaagent",
+    ".agents/plugins/marketplace.json",
+    "README.md",
+    "PRIVACY.md",
+    "TERMS.md",
+    "ARCHITECTURE.md",
+    "CLI.md",
+    "PLUGIN.md",
+    "SECURITY.md",
+    "SETUP.md",
+    "WALLET.md",
+    "ENGINE.md",
+    "AI_PARSER.md",
+    "ROADMAP.md",
+    ".env.example"
+  ],
+  "scripts": {
+    "lint": "eslint .",
+    "smoke:help": "node ./src/cli.js --help",
+    "smoke:mcp": "node ./test/mcp-smoke.js",
+    "smoke:quote": "node ./src/cli.js quote-swap --sell-token AVAX --buy-token USDC --sell-amount 0.01 --json",
+    "test": "npm run smoke:help && npm run smoke:mcp",
+    "pack:check": "npm pack --dry-run",
+    "prepare": "node -e \"import('husky').then((m) => m.default()).catch(() => {})\""
+  },
+  "keywords": [
+    "avalanche",
+    "wallet",
+    "dex",
+    "swap",
+    "cli",
+    "codex-plugin"
+  ],
+  "author": "Abhij",
+  "license": "MIT",
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.29.0",
+    "commander": "^13.1.0",
+    "dotenv": "^17.2.1",
+    "ethers": "^6.15.0",
+    "zod": "^4.4.3"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.27.0",
+    "eslint": "^9.27.0",
+    "globals": "^16.0.0",
+    "husky": "^9.1.7"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

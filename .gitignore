@@ -1,0 +1,9 @@
+node_modules/
+.env
+.env.*
+!.env.example
+wallet.json
+fuji-wallet.json
+*.log
+.husky/_
+.fuji

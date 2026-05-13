@@ -1,0 +1,20 @@
+{
+  "name": "avaagent-local",
+  "interface": {
+    "displayName": "AvaAgent Local Plugins"
+  },
+  "plugins": [
+    {
+      "name": "avaagent",
+      "source": {
+        "source": "local",
+        "path": "./avaagent"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Developer Tools"
+    }
+  ]
+}

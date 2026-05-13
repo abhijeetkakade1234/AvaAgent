@@ -1,0 +1,11 @@
+{
+  "mcpServers": {
+    "avaagent": {
+      "type": "stdio",
+      "command": "node",
+      "args": [
+        "./mcp/server.js"
+      ]
+    }
+  }
+}
