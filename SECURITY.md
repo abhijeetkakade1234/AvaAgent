@@ -7,6 +7,9 @@
 - mutating CLI actions require explicit confirmation by default
 - native AVAX transfers can be capped with `AVA_MAX_NATIVE_TRANSFER_AVAX`
 - swaps can be capped with `AVA_MAX_SWAP_SELL_AMOUNT`
+- supported chain IDs are restricted to Avalanche mainnet and Fuji
+- wallet passwords are blocked on argv by default and are passed through env/prompt flows instead
+- ERC20 approvals default to exact amounts unless `AVA_APPROVAL_MODE=infinite` is explicitly chosen
 - swap approvals are limited to the 0x AllowanceHolder flow
 
 ## Still true
@@ -20,5 +23,5 @@
 
 - prompt mistakes can still produce valid but unwanted transfers
 - a wrong token symbol or address can route value incorrectly
-- ERC20 infinite approvals reduce friction but increase approval exposure
+- explicit opt-in to infinite approvals still increases approval exposure
 - 0x API availability is an external dependency for quote and swap flows

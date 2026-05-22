@@ -35,6 +35,7 @@ Copy `.env.example` to `.env` and set:
 - `AVA_RPC_URL`
 - `AVA_WALLET_FILE`
 - `AVA_0X_API_KEY`
+- `AVA_APPROVAL_MODE`
 - optional safety caps such as `AVA_MAX_NATIVE_TRANSFER_AVAX`
 
 ## CLI
@@ -83,8 +84,11 @@ Available MCP tools:
 
 - Swaps require a valid 0x API key.
 - Wallet secrets stay local in `wallet.json`.
+- Wallet passwords are read from an interactive prompt or `AVA_WALLET_PASSWORD`; passing `--password` is blocked by default because argv leaks too easily.
 - By default, state-changing commands require confirmation unless `--yes` is passed or `AVA_REQUIRE_CONFIRMATION=false` is set.
-- Value-moving operations only allow the built-in known token set instead of arbitrary token addresses.
+- Value-moving operations only allow the built-in known token set for the active supported chain.
+- Supported chains are limited to Avalanche mainnet (`43114`) and Fuji (`43113`).
+- ERC20 approvals default to `exact`; use `AVA_APPROVAL_MODE=infinite` or `--approval-mode infinite` only if you explicitly want persistent allowance exposure.
 - Non-default 0x base URLs are blocked unless `AVA_ALLOW_UNSAFE_0X_BASE_URL=true` is explicitly set.
 
 ## Repo quality gates
