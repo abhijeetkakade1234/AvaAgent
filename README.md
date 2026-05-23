@@ -86,6 +86,7 @@ Available MCP tools:
 - Wallet secrets stay local in `wallet.json`.
 - Wallet passwords are read from an interactive prompt or `AVA_WALLET_PASSWORD`; passing `--password` is blocked by default because argv leaks too easily.
 - By default, state-changing commands require confirmation unless `--yes` is passed or `AVA_REQUIRE_CONFIRMATION=false` is set.
+- Interactive `send`, `swap`, and AI-triggered value-moving commands now print a resolved preflight summary and require typing `YES` before execution.
 - Value-moving operations only allow the built-in known token set for the active supported chain.
 - Supported chains are limited to Avalanche mainnet (`43114`) and Fuji (`43113`).
 - ERC20 approvals default to `exact`; use `AVA_APPROVAL_MODE=infinite` or `--approval-mode infinite` only if you explicitly want persistent allowance exposure.
