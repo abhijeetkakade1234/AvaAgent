@@ -9,6 +9,7 @@
 - swaps can be capped with `AVA_MAX_SWAP_SELL_AMOUNT`
 - supported chain IDs are restricted to Avalanche mainnet and Fuji
 - wallet passwords are blocked on argv by default and are passed through env/prompt flows instead
+- CLI value-moving flows show a resolved preflight summary and require interactive `YES` confirmation unless bypassed deliberately
 - ERC20 approvals default to exact amounts unless `AVA_APPROVAL_MODE=infinite` is explicitly chosen
 - swap approvals are limited to the 0x AllowanceHolder flow
 
